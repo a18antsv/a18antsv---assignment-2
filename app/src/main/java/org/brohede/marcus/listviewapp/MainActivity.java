@@ -2,20 +2,30 @@ package org.brohede.marcus.listviewapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
-    private String[] mountainLocations = {"Alps","Alps","Alaska"};
-    private int[] mountainHeights ={4478,4808,6190};
-    // Create ArrayLists from the raw data above and use these lists when populating your ListView.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast.makeText(this, "TEST", Toast.LENGTH_SHORT).show();
+        final List<Mountain> mountains = new ArrayList<>();
+        mountains.add(new Mountain("Matterhorn", 4478, "Alps"));
+        mountains.add(new Mountain("Mont Blanc", 4808, "Alps"));
+        mountains.add(new Mountain("Denali", 6190, "Alaska"));
+        mountains.add(new Mountain("Mount Everest", 8848, "Himalayas"));
+        mountains.add(new Mountain("K2", 8611, "Karakoram"));
+        mountains.add(new Mountain("Kangchenjunga", 8586, "Himalayas"));
+        mountains.add(new Mountain("Lhotse", 8516, "Himalayas"));
+        mountains.add(new Mountain("Makalu", 8485, "Himalayas"));
+        mountains.add(new Mountain("Cho Oyu", 8201, "Himalayas"));
+        mountains.add(new Mountain("Dhaulagiri", 8167, "Himalayas"));
+
+
 
         // Before you can implement this you need to create the layout xml files that
         // will hold/show your data created here. You need three create things:
