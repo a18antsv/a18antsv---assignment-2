@@ -2,7 +2,11 @@ package org.brohede.marcus.listviewapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +34,21 @@ public class MainActivity extends AppCompatActivity {
             mountainNames.add(mountains.get(i).getName());
         }
 
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.listitem_textview, R.id.item_textview, mountainNames);
+
+        ListView listView = (ListView) findViewById(R.id.my_listview);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String message =
+                    "Name: " + mountains.get(i).getName() + "\n" +
+                    "Height: " + mountains.get(i).getHeight() +
+                    "m\nLocation: " + mountains.get(i).getLocation()
+                ;
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Before you can implement this you need to create the layout xml files that
         // will hold/show your data created here. You need three create things:
