@@ -17,7 +17,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //ArrayList of Mountain objects from the created class "Mountain"
         final List<Mountain> mountains = new ArrayList<>();
+
+        //Populates list with 10 different mountain objects
         mountains.add(new Mountain("Matterhorn", 4478, "Alps"));
         mountains.add(new Mountain("Mont Blanc", 4808, "Alps"));
         mountains.add(new Mountain("Denali", 6190, "Alaska"));
@@ -29,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
         mountains.add(new Mountain("Cho Oyu", 8201, "Himalayas"));
         mountains.add(new Mountain("Dhaulagiri", 8167, "Himalayas"));
 
+        //New ArrayList containing only the name of each mountain as a string
         List<String> mountainNames = new ArrayList<>();
+
+        //Iterates through each mountian object and adds the name to the ArrayList representing names
         for(int i = 0; i < mountains.size(); i++) {
             mountainNames.add(mountains.get(i).getName());
         }
@@ -41,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Uses the functions in the created class "Mountain to get information about the clicked mountain
                 String message =
                     "Name: " + mountains.get(i).getName() + "\n" +
                     "Height: " + mountains.get(i).getHeight() +
@@ -49,27 +56,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
             }
         });
-
-        // Before you can implement this you need to create the layout xml files that
-        // will hold/show your data created here. You need three create things:
-        // * my_listview - the ID to the actual layout element that is our ListView.
-        //                 This my_listview element is created in the activity_main.xml file
-        // * list_item_textview - This is a new layout xml file that holds the layout for an
-        //                        individual item in the ListView we are creating
-        // * my_item_textview - This is the ID to the actual TextView that will contain the text for
-        //                      an individual item in the ListView we are creating.
-        // Here you should enter your code that fills the ListView
-        // 1. Create an array
-        // 2. Create a List object with your array from step 1 as in-data
-        // 3. Create an ArrayAdapter object that connects
-        //    * list_item_textview
-        //    * my_item_textview
-        //    * List object created in step 2
-        // 4. Find the ListView layout element "my_listview" and create an object instance
-        // 5. Connect the ArrayAdapter from step 3 with ListView object created in step 4
-        // 6. Style the ListView items according to Material Design
-        //    See: https://material.io/guidelines/components/lists.html#lists-specs
-        //    Look for "singel line specs" for "text only" lists and modify the list_item_textview
-        //    accordingly
     }
 }
