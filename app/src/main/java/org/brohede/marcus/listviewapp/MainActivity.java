@@ -2,9 +2,7 @@ package org.brohede.marcus.listviewapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
@@ -12,13 +10,13 @@ public class MainActivity extends AppCompatActivity {
     private int[] mountainHeights ={4478,4808,6190};
     // Create ArrayLists from the raw data above and use these lists when populating your ListView.
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // The onCreate method is run when the app is created.
+        Toast.makeText(this, "TEST", Toast.LENGTH_SHORT).show();
+
         // Before you can implement this you need to create the layout xml files that
         // will hold/show your data created here. You need three create things:
         // * my_listview - the ID to the actual layout element that is our ListView.
