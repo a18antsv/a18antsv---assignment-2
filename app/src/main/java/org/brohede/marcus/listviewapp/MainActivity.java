@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         mountains.add(new Mountain("Cho Oyu", 8201, "Himalayas"));
         mountains.add(new Mountain("Dhaulagiri", 8167, "Himalayas"));
 
+        List<String> mountainNames = new ArrayList<>();
+        for(int i = 0; i < mountains.size(); i++) {
+            mountainNames.add(mountains.get(i).getName());
+        }
 
 
         // Before you can implement this you need to create the layout xml files that
